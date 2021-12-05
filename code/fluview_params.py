@@ -29,7 +29,7 @@ class FluViewParams():
         self, 
         epiweeks: List[str], 
         regions: List[FluViewRegion],
-        issues: List[str],
+        issues: List[str] = None,
         lag: int = None,
         auth: str = None
     ):
