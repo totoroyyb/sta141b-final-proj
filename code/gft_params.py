@@ -47,5 +47,3 @@ class GTFParams():
         }
 
         return query_dict
-
-print(GTFParams([202010], [GFTRegion.CEN1]).query())

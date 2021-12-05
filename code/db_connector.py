@@ -1,11 +1,14 @@
 import pandas as pd
 import sqlalchemy as sqla
 import threading
+from dir_path_resolver import PathResolver
 from endpoint_type import EndpointType
 
 db_protocol = "sqlite:///"
-db_filename = "../data/influenza_data.sqlite"
-db_conn_str = db_protocol + db_filename
+data_dir = PathResolver.data_dir
+db_filename = "influenza_data.sqlite"
+db_file_fullpath = data_dir.joinpath(db_filename)
+db_conn_str = db_protocol + str(db_file_fullpath)
 
 class DBConnector():
     mutex = threading.Lock()
@@ -13,15 +16,18 @@ class DBConnector():
     def __init__(self) -> None:
         self.db_conn = sqla.create_engine(db_conn_str)
 
-    def write(self, df: pd.DataFrame, endpoint_type: EndpointType):
+    def write(self, df: pd.DataFrame, endpoint_type: EndpointType, if_exists = "replace"):
         table_name = DBConnector.resolveTableName(endpoint_type)
         
         DBConnector.mutex.acquire()
-        df.to_sql(table_name, self.db_conn, if_exists="append")
+        df.to_sql(table_name, self.db_conn, if_exists=if_exists, index=False)
         DBConnector.mutex.release()
 
     def read(self, query: str) -> pd.DataFrame:
-        pd.read_sql_query(query, self.db_conn)
+        try:
+            return pd.read_sql_query(query, self.db_conn)
+        except:
+            return pd.DataFrame()
 
     def get_table_name(endpoint_type: EndpointType) -> str:
         return DBConnector.resolveTableName(endpoint_type)
