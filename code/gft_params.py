@@ -1,12 +1,5 @@
 from typing import List
 from comparable_enum_base import ComparableEnum
-# import os
-# import sys
-
-# curr_dir = os.path.dirname(os.path.realpath(__file__))
-# parent_dir = os.path.dirname(curr_dir)
-# sys.path.append(parent_dir)
-
 from utils import Utils
 
 class GFTRegion(ComparableEnum):

@@ -19,6 +19,9 @@ class DBConnector():
     def write(self, df: pd.DataFrame, endpoint_type: EndpointType, if_exists = "replace"):
         table_name = DBConnector.resolveTableName(endpoint_type)
         
+        if (len(df) == 0):
+            return
+        
         DBConnector.mutex.acquire()
         df.to_sql(table_name, self.db_conn, if_exists=if_exists, index=False)
         DBConnector.mutex.release()
