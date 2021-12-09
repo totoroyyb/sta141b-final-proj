@@ -3,6 +3,9 @@ from utils import Utils
 from comparable_enum_base import ComparableEnum
 
 class FluSurvRegion(ComparableEnum):
+    '''
+    Enums for all different FluSurv valid regions.
+    '''
     CA = "CA"
     CO = "CO"
     CT = "CT"
@@ -42,6 +45,9 @@ class FluSurvParams():
         self.lag = lag
 
     def query(self) -> dict:
+        '''
+        Return the query defined by this param class.
+        '''
         query_dict = {
             "epiweeks": Utils.flatten_list(self.epiweeks),
             "locations": Utils.flatten_list(self.regions)

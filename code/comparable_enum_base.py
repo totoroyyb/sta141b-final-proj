@@ -1,6 +1,9 @@
 from enum import Enum
 
 class ComparableEnum(str, Enum):
+    '''
+    Based class for all enums to make sure they are properly comparable.
+    '''
     def __str__(self) -> str:
         return self.value
     
