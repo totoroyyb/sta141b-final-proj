@@ -3,6 +3,9 @@ from comparable_enum_base import ComparableEnum
 from utils import Utils
 
 class GFTRegion(ComparableEnum):
+    '''
+    Enums for all valid google flu trend regions.
+    '''
     NAT = "nat"
     HHS1 = "hhs1"
     HHS2 = "hhs2"
@@ -34,6 +37,10 @@ class GTFParams():
         self.regions = Utils.vectorize_if_need(regions)
 
     def query(self) -> dict:
+        '''
+        Return the query defined by this param class.
+        '''
+        
         query_dict = {
             "epiweeks": Utils.flatten_list(self.epiweeks),
             "locations": Utils.flatten_list(self.regions)

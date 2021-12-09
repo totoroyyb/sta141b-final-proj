@@ -15,14 +15,32 @@ from endpoint_type import EndpointType
 cache_path = PathResolver.data_dir.joinpath("req_cache")
 requests_cache.install_cache(cache_path)
 
-# param = FluSurvParams(["202003", "202004"], [FluSurvRegion.CA])
-
 class DataFetcher():
+    '''
+    This class is used to fetch data from endpoints.
+
+    Cache is enabled for each api call.
+
+    The cache file is named `req_cache.sqlite` under folder `data`.
+
+    By default, this class allows 20 concurrent request and throttle afterwards.
+    '''
     sem = threading.Semaphore(20)
     db_connector = DBConnector()
 
     @staticmethod
     def fetch(endpoint: EndpointType, param, does_store: bool = True):
+        '''
+        Fetch data given endpoint type and corresponding parameter.
+
+        Parameter:
+
+        endpoint -- The endpoint type you are fetching.
+
+        param -- The parameters that passed as query.
+
+        does_store -- whether save the requst to the local database.
+        '''
         DataFetcher.sem.acquire()
         base_url = str(endpoint)
         json = requests.get(base_url, param.query()).json()
@@ -38,6 +56,16 @@ class DataFetcher():
     @staticmethod
     def store_without_dup(df: pd.DataFrame, endpoint_type: EndpointType):
         '''
+        Store fetched data into database and remove all duplicated rows.
+
+        Parameter:
+
+        df -- New fetched data in dataframe form
+
+        endpoint_type -- which endpoint is using.
+
+        Note:
+
         This function is not memory efficient, use it with caution.
         '''
 
@@ -52,9 +80,3 @@ class DataFetcher():
         no_dup_df = concat_df.drop_duplicates(ignore_index=True)
 
         DataFetcher.db_connector.write(no_dup_df, endpoint_type)
-        
-
-# print(EndpointType.FLUSURV == EndpointType.FLUSURV)
-
-# print(DataFetcher.fetch(EndpointType.FLUSURV, param))
-

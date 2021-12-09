@@ -2,8 +2,18 @@ from typing import List
 import pandas as pd
 
 class Utils():
+    '''
+    Utility functions
+    '''
+
     @staticmethod
     def vectorize_if_need(val) -> list:
+        '''
+        If one single element is passed on, 
+        then wrap that number into a list and return it.
+        Otherwise, return the passed in list.
+        '''
+
         if val == None:
             return None
             
@@ -15,6 +25,11 @@ class Utils():
 
     @staticmethod
     def extract_epidata(json: dict, variables: List[str] = None) -> pd.DataFrame:
+        '''
+        Extract the epidata part from a json, and 
+        return the result as a dataframe.
+        '''
+        
         epidata = pd.DataFrame(json["epidata"])
 
         if variables != None:

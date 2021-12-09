@@ -3,6 +3,9 @@ from utils import Utils
 from comparable_enum_base import ComparableEnum
 
 class FluViewRegion(ComparableEnum):
+    '''
+    Enums for all valid FluView regions.
+    '''
     NAT = "nat"
     HHS1 = "hhs1"
     HHS2 = "hhs2"
