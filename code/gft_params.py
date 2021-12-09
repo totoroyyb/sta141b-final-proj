@@ -1,4 +1,5 @@
-from typing import List
+from typing import List, Union
+from states import State
 from comparable_enum_base import ComparableEnum
 from utils import Utils
 
@@ -28,7 +29,7 @@ class GTFParams():
     def __init__(
         self, 
         epiweeks: List[str], 
-        regions: List[GFTRegion]
+        regions: List[Union[GFTRegion, State]]
     ):
         self.epiweeks = Utils.vectorize_if_need(epiweeks)
         self.regions = Utils.vectorize_if_need(regions)
