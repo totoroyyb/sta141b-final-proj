@@ -6,6 +6,8 @@
 > - Yuxin Jiang, yyxjiang@ucdavis.edu, 916117618
 > - Ziyue Wan, zywan@ucdavis.edu, 915986390
 
+You can check final version of [report file here](./Report/report.pdf).
+
 ## Introduction
 The COVID-19 pandemic has led to a devastating loss of human life worldwide and presents an unprecedented challenge to public health, food systems and the world of work. In the context of global pandemic, analyzing infectious disease characteristics and trends, evaluating its impact have become pressing needs for pandemic recovery and prevention. As a result, we choose to analyze data of Influenza in this project. Our goal is to find the temporal trend, spatial trend, and impact of influenza on people's online behabior. The conclusion of the project would be used to help the prevention and revory from the epidemic.
 
