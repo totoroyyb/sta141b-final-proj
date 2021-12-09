@@ -34,7 +34,7 @@ We placed our codes and results in three separate folders.
 
   - `hospitality.ipynb`
 
-    We conducted an analysis of how hospitality is related to the confirmed case number of influenze.
+    We conducted an analysis of how average influenza hospitalization rates distribute in different age group
 
   - `social_impact.ipynb`
 
