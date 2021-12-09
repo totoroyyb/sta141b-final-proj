@@ -83,7 +83,9 @@ DataFetcher.fetch(EndpointType.FLUSURV, param=flusurv_param)
 
 ## Architecture 
 
+The architecture diagram is like this:
 
+![](../assets/arch_diagram.jpg)
 
 
 ## Helper Functions
@@ -99,5 +101,8 @@ DBConnector.resolveTableName(EndpointType.FLUSURV)
 # it returns the table name as "flusurv".
 ```
 
+### Retrieve the Path of Different Folders
 
+You can use `PahResolver`, which is defined in this [file](../code/dir_path_resolver.py), to obtain the path to several folders in this project programmatically.
 
+For example, if you want to know the absolute path for the `code` folder on your machine, you can use `PathResolver.code_dir`.
