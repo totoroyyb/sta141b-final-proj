@@ -1,10 +1,10 @@
 # Temporal and Spatial Distribution and Impact of Influenza
 
 > **Group members:** 
-> - Yizhou Zhao, 
-> - Yibo Yan, 
-> - Yuxin Jiang, 
-> - Ziyue Wan.
+> - Yizhou Zhao, mrzhao@ucdavis.edu, 915991479
+> - Yibo Yan, ybyan@ucdavis.edu, 916129017
+> - Yuxin Jiang, yyxjiang@ucdavis.edu, 916117618
+> - Ziyue Wan, zywan@ucdavis.edu, 915986390
 
 ## Introduction
 The COVID-19 pandemic has led to a devastating loss of human life worldwide and presents an unprecedented challenge to public health, food systems and the world of work. In the context of global pandemic, analyzing infectious disease characteristics and trends, evaluating its impact have become pressing needs for pandemic recovery and prevention. As a result, we choose to analyze data of Influenza in this project. Our goal is to find the temporal trend, spatial trend, and impact of influenza on people's online behabior. The conclusion of the project would be used to help the prevention and revory from the epidemic.
